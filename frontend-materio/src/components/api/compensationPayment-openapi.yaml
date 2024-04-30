@@ -1,0 +1,187 @@
+---
+paths:
+  '/compensationPayments/{id}//compensations':
+    summary: CreateCompensationPayment operation on compensationPayments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  description: id of this CreateCompensationPayment
+                  type: string
+                amount:
+                  description: amount of this CreateCompensationPayment
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateCompensationPayment name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompensationPayment'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    amount: value
+          description: CreateCompensationPayment Operation
+      operationId: CreateCompensationPayment
+      summary: CreateCompensationPayment
+      description: CreateCompensationPayment
+  /compensationPayments:
+    summary: Global operations on compensationPayments
+    get:
+      tags:
+        - compensationPayments
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/CompensationPayment'
+              examples:
+                compensationPayments_json:
+                  value:
+                    - id: A string
+                      amount: value
+          description: Get list of compensationPayments
+      operationId: GetCompensationPayment
+      summary: Get list of compensationPayments
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompensationPayment'
+            examples:
+              '1':
+                value:
+                  id: A string
+                  amount: value
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompensationPayment'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    amount: value
+          description: Changed CompensationPayment
+      operationId: Post CompensationPayment
+      summary: Post CompensationPayment
+  '/compensationPayments/{id}':
+    summary: Specific operation on compensationPayments
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: CompensationPayment name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompensationPayment'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    amount: value
+          description: compensationPayments with specified id
+      operationId: GetCompensationPaymentById
+      summary: Get CompensationPayment by id
+      description: Get CompensationPayment by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CompensationPayment'
+            examples:
+              '1':
+                value:
+                  id: A string
+                  amount: value
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: CompensationPayment name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/CompensationPayment'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    amount: value
+          description: Changed CompensationPayment
+      operationId: PatchCompensationPayment
+      summary: Patch existing CompensationPayment
+    parameters:
+      - name: id
+        description: CompensationPayment id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: CompensationPayment
+  version: 0.0.1
+  description: API definition of compensationPayment
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    CompensationPayment:
+      title: Root Type for CompensationPayment
+      description: The root of the CompensationPayment type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this CompensationPayment
+          type: string
+        amount:
+          description: amount of this CompensationPayment
+          type: string
+tags:
+  - name: CompensationPayment
+    description: CompensationPayment resource

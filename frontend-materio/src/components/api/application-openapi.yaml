@@ -1,0 +1,197 @@
+---
+paths:
+  '/applications/{id}//api/minwon':
+    summary: apply operation on applications
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                민원번호:
+                  description: 민원번호 of this Apply
+                  type: string
+                민원내용:
+                  description: 민원내용 of this Apply
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: Apply name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              examples:
+                '1':
+                  value:
+                    민원번호: A string
+                    민원내용: A string
+                    진행상태: A string
+          description: Apply Operation
+      operationId: Apply
+      summary: Apply
+      description: Apply
+  /applications:
+    summary: Global operations on applications
+    get:
+      tags:
+        - applications
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Application'
+              examples:
+                applications_json:
+                  value:
+                    - 민원번호: A string
+                      민원내용: A string
+                      진행상태: A string
+          description: Get list of applications
+      operationId: GetApplication
+      summary: Get list of applications
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+            examples:
+              '1':
+                value:
+                  민원번호: A string
+                  민원내용: A string
+                  진행상태: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              examples:
+                '1':
+                  value:
+                    민원번호: A string
+                    민원내용: A string
+                    진행상태: A string
+          description: Changed Application
+      operationId: Post Application
+      summary: Post Application
+  '/applications/{id}':
+    summary: Specific operation on applications
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: Application name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              examples:
+                '1':
+                  value:
+                    민원번호: A string
+                    민원내용: A string
+                    진행상태: A string
+          description: applications with specified id
+      operationId: GetApplicationById
+      summary: Get Application by id
+      description: Get Application by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Application'
+            examples:
+              '1':
+                value:
+                  민원번호: A string
+                  민원내용: A string
+                  진행상태: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: 민원번호
+          description: Application name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Application'
+              examples:
+                '1':
+                  value:
+                    민원번호: A string
+                    민원내용: A string
+                    진행상태: A string
+          description: Changed Application
+      operationId: PatchApplication
+      summary: Patch existing Application
+    parameters:
+      - name: id
+        description: Application id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: Application
+  version: 0.0.1
+  description: API definition of application
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    Application:
+      title: Root Type for Application
+      description: The root of the Application type's schema.
+      type: object
+      properties:
+        민원번호:
+          description: 민원번호 of this Application
+          type: string
+        민원내용:
+          description: 민원내용 of this Application
+          type: string
+        진행상태:
+          description: 진행상태 of this Application
+          type: string
+tags:
+  - name: Application
+    description: Application resource

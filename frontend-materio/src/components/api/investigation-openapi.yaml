@@ -1,0 +1,225 @@
+---
+paths:
+  '/investigations/{id}//investigation/create':
+    summary: CreateInvestigation operation on investigations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of this CreateInvestigation
+                  type: string
+                description:
+                  description: description of this CreateInvestigation
+                  type: string
+                date:
+                  description: date of this CreateInvestigation
+                  type: string
+            examples:
+              Example 0:
+                value:
+                  name: N/A
+                  description: N/A
+                  date: N/A
+      parameters:
+        - name: id
+          description: CreateInvestigation name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples:
+            Example 0:
+              value: N/A
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Investigation'
+              examples:
+                Example 0:
+                  value:
+                    name: N/A
+                    description: N/A
+                    date: N/A
+          description: CreateInvestigation Operation
+      operationId: CreateInvestigation
+      summary: CreateInvestigation
+      description: CreateInvestigation
+  /investigations:
+    summary: Global operations on investigations
+    get:
+      tags:
+        - investigations
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Investigation'
+              examples:
+                investigations_json:
+                  value:
+                    - name: A string
+                      description: A string
+                      date: value
+                      민원번호: A string
+                      status: A string
+          description: Get list of investigations
+      operationId: GetInvestigation
+      summary: Get list of investigations
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Investigation'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  description: A string
+                  date: value
+                  민원번호: A string
+                  status: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Investigation'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+                    date: value
+                    민원번호: A string
+                    status: A string
+          description: Changed Investigation
+      operationId: Post Investigation
+      summary: Post Investigation
+  '/investigations/{id}':
+    summary: Specific operation on investigations
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: Investigation name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Investigation'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+                    date: value
+                    민원번호: A string
+                    status: A string
+          description: investigations with specified id
+      operationId: GetInvestigationById
+      summary: Get Investigation by id
+      description: Get Investigation by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Investigation'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  description: A string
+                  date: value
+                  민원번호: A string
+                  status: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: name
+          description: Investigation name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Investigation'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+                    date: value
+                    민원번호: A string
+                    status: A string
+          description: Changed Investigation
+      operationId: PatchInvestigation
+      summary: Patch existing Investigation
+    parameters:
+      - name: id
+        description: Investigation id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: Investigation
+  version: 0.0.1
+  description: API definition of investigation
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    Investigation:
+      title: Root Type for Investigation
+      description: The root of the Investigation type's schema.
+      type: object
+      properties:
+        name:
+          description: name of this Investigation
+          type: string
+        description:
+          description: description of this Investigation
+          type: string
+        date:
+          description: date of this Investigation
+          type: string
+        민원번호:
+          description: 민원번호 of this Investigation
+          type: string
+        status:
+          description: status of this Investigation
+          type: string
+tags:
+  - name: Investigation
+    description: Investigation resource

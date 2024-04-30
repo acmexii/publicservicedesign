@@ -1,0 +1,274 @@
+---
+paths:
+  '/processings/{id}//processing/delete':
+    summary: DeleteProcessing operation on processings
+    delete:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of this DeleteProcessing
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: DeleteProcessing name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Processing'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    date: value
+                    민원번호: A string
+          description: DeleteProcessing Operation
+      operationId: DeleteProcessing
+      summary: DeleteProcessing
+      description: DeleteProcessing
+  '/processings/{id}//process':
+    summary: UpdateProcessing operation on processings
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of this UpdateProcessing
+                  type: string
+                date:
+                  description: date of this UpdateProcessing
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: UpdateProcessing name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Processing'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    date: value
+                    민원번호: A string
+          description: UpdateProcessing Operation
+      operationId: UpdateProcessing
+      summary: UpdateProcessing
+      description: UpdateProcessing
+  '/processings/{id}//processing/create':
+    summary: CreateProcessing operation on processings
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of this CreateProcessing
+                  type: string
+                date:
+                  description: date of this CreateProcessing
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateProcessing name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Processing'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    date: value
+                    민원번호: A string
+          description: CreateProcessing Operation
+      operationId: CreateProcessing
+      summary: CreateProcessing
+      description: CreateProcessing
+  /processings:
+    summary: Global operations on processings
+    get:
+      tags:
+        - processings
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Processing'
+              examples:
+                processings_json:
+                  value:
+                    - name: A string
+                      date: value
+                      민원번호: A string
+          description: Get list of processings
+      operationId: GetProcessing
+      summary: Get list of processings
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Processing'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  date: value
+                  민원번호: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Processing'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    date: value
+                    민원번호: A string
+          description: Changed Processing
+      operationId: Post Processing
+      summary: Post Processing
+  '/processings/{id}':
+    summary: Specific operation on processings
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: Processing name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Processing'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    date: value
+                    민원번호: A string
+          description: processings with specified id
+      operationId: GetProcessingById
+      summary: Get Processing by id
+      description: Get Processing by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Processing'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  date: value
+                  민원번호: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: name
+          description: Processing name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Processing'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    date: value
+                    민원번호: A string
+          description: Changed Processing
+      operationId: PatchProcessing
+      summary: Patch existing Processing
+    parameters:
+      - name: id
+        description: Processing id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: Processing
+  version: 0.0.1
+  description: API definition of processing
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    Processing:
+      title: Root Type for Processing
+      description: The root of the Processing type's schema.
+      type: object
+      properties:
+        name:
+          description: name of this Processing
+          type: string
+        date:
+          description: date of this Processing
+          type: string
+        민원번호:
+          description: 민원번호 of this Processing
+          type: string
+tags:
+  - name: Processing
+    description: Processing resource

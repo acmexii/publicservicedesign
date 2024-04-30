@@ -1,0 +1,226 @@
+---
+paths:
+  '/rewardApplications/{id}/status':
+    summary: UpdateCompensationReviewStatus operation on rewardApplications
+    put:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  description: id of this UpdateCompensationReviewStatus
+                  type: string
+                status:
+                  description: status of this UpdateCompensationReviewStatus
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: UpdateCompensationReviewStatus name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RewardApplication'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    reason: A string
+          description: UpdateCompensationReviewStatus Operation
+      operationId: UpdateCompensationReviewStatus
+      summary: UpdateCompensationReviewStatus
+      description: UpdateCompensationReviewStatus
+  '/rewardApplications/{id}//rewards':
+    summary: CreateRewardApplication operation on rewardApplications
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                id:
+                  description: id of this CreateRewardApplication
+                  type: string
+                reason:
+                  description: reason of this CreateRewardApplication
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateRewardApplication name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RewardApplication'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    reason: A string
+          description: CreateRewardApplication Operation
+      operationId: CreateRewardApplication
+      summary: CreateRewardApplication
+      description: CreateRewardApplication
+  /rewardApplications:
+    summary: Global operations on rewardApplications
+    get:
+      tags:
+        - rewardApplications
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/RewardApplication'
+              examples:
+                rewardApplications_json:
+                  value:
+                    - id: A string
+                      reason: A string
+          description: Get list of rewardApplications
+      operationId: GetRewardApplication
+      summary: Get list of rewardApplications
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RewardApplication'
+            examples:
+              '1':
+                value:
+                  id: A string
+                  reason: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RewardApplication'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    reason: A string
+          description: Changed RewardApplication
+      operationId: Post RewardApplication
+      summary: Post RewardApplication
+  '/rewardApplications/{id}':
+    summary: Specific operation on rewardApplications
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: RewardApplication name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RewardApplication'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    reason: A string
+          description: rewardApplications with specified id
+      operationId: GetRewardApplicationById
+      summary: Get RewardApplication by id
+      description: Get RewardApplication by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/RewardApplication'
+            examples:
+              '1':
+                value:
+                  id: A string
+                  reason: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: id
+          description: RewardApplication name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/RewardApplication'
+              examples:
+                '1':
+                  value:
+                    id: A string
+                    reason: A string
+          description: Changed RewardApplication
+      operationId: PatchRewardApplication
+      summary: Patch existing RewardApplication
+    parameters:
+      - name: id
+        description: RewardApplication id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: RewardApplication
+  version: 0.0.1
+  description: API definition of rewardApplication
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    RewardApplication:
+      title: Root Type for RewardApplication
+      description: The root of the RewardApplication type's schema.
+      type: object
+      properties:
+        id:
+          description: id of this RewardApplication
+          type: string
+        reason:
+          description: reason of this RewardApplication
+          type: string
+tags:
+  - name: RewardApplication
+    description: RewardApplication resource

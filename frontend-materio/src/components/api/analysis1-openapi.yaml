@@ -1,0 +1,166 @@
+openapi: 3.0.2
+info:
+  title: Analysis1
+  version: 0.0.1
+  description: API definition of analysis1
+  contact:
+    name: creator's name
+    url: http://creator.homepage.address
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: https://opensource.org/licenses/MIT
+paths:
+  /analysis1s:
+    summary: Global operations on analysis1s
+    get:
+      tags:
+      - analysis1s
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Analysis1'
+              examples:
+                analysis1s_json:
+                  value:
+                  -
+                    complaintType: A string
+                    totalCount: 1
+                    approvedCount: 1
+                    rejectedCount: 1
+          description: Get list of analysis1s
+      operationId: GetAnalysis1
+      summary: Get list of analysis1s
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Analysis1'
+            examples:
+              1:
+                value:
+                  complaintType: A string
+                  totalCount: 1
+                  approvedCount: 1
+                  rejectedCount: 1
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Analysis1'
+              examples:
+                1:
+                  value:
+                    complaintType: A string
+                    totalCount: 1
+                    approvedCount: 1
+                    rejectedCount: 1
+          description: Changed Analysis1
+      operationId: Post Analysis1
+      summary: Post Analysis1        
+  /analysis1s/{id}:
+    summary: Specific operation on analysis1s
+    get:
+      parameters:
+      - examples:
+          A string:
+            value: A string
+        name: id
+        description: Analysis1 name
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Analysis1'
+              examples:
+                1:
+                  value:
+                    complaintType: A string
+                    totalCount: 1
+                    approvedCount: 1
+                    rejectedCount: 1
+          description: analysis1s with specified id
+      operationId: GetAnalysis1ById
+      summary: Get Analysis1 by id
+      description: Get Analysis1 by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Analysis1'
+            examples:
+              1:
+                value:
+                  complaintType: A string
+                  totalCount: 1
+                  approvedCount: 1
+                  rejectedCount: 1
+        required: true
+      parameters:
+      - examples:
+          1:
+            value: 1
+        name: complaintType
+        description: Analysis1 name
+        schema:
+          type: string
+        in: path
+        required: true
+      responses:
+        "200":
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Analysis1'
+              examples:
+                1:
+                  value:
+                    complaintType: A string
+                    totalCount: 1
+                    approvedCount: 1
+                    rejectedCount: 1
+          description: Changed Analysis1
+      operationId: PatchAnalysis1
+      summary: Patch existing Analysis1
+    parameters:
+    - name: id
+      description: Analysis1 id
+      schema:
+        type: string
+      in: path
+      required: true
+components:
+  schemas:
+    Analysis1:
+      title: Root Type for Analysis1
+      description: The root of the Analysis1 type's schema.
+      type: object
+      properties:
+        complaintType:
+          description: complaintType of this Analysis1
+          type: string
+        totalCount:
+          description: totalCount of this Analysis1
+          type: integer
+        approvedCount:
+          description: approvedCount of this Analysis1
+          type: integer
+        rejectedCount:
+          description: rejectedCount of this Analysis1
+          type: integer
+tags:
+  - name: Analysis1
+    description: Analysis1 resource

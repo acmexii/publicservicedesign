@@ -1,0 +1,223 @@
+---
+paths:
+  '/minwonType2s/{id}//minwonType2/{id}':
+    summary: DeleteMinwonType2 operation on minwonType2s
+    delete:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of this DeleteMinwonType2
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: DeleteMinwonType2 name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinwonType2'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+          description: DeleteMinwonType2 Operation
+      operationId: DeleteMinwonType2
+      summary: DeleteMinwonType2
+      description: DeleteMinwonType2
+  '/minwonType2s/{id}//minwonType2':
+    summary: CreateMinwonType2 operation on minwonType2s
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  description: name of this CreateMinwonType2
+                  type: string
+                description:
+                  description: description of this CreateMinwonType2
+                  type: string
+            examples: null
+      parameters:
+        - name: id
+          description: CreateMinwonType2 name
+          schema:
+            type: string
+          in: path
+          required: true
+          examples: null
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinwonType2'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+          description: CreateMinwonType2 Operation
+      operationId: CreateMinwonType2
+      summary: CreateMinwonType2
+      description: CreateMinwonType2
+  /minwonType2s:
+    summary: Global operations on minwonType2s
+    get:
+      tags:
+        - minwonType2s
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/MinwonType2'
+              examples:
+                minwonType2s_json:
+                  value:
+                    - name: A string
+                      description: A string
+          description: Get list of minwonType2s
+      operationId: GetMinwonType2
+      summary: Get list of minwonType2s
+    post:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinwonType2'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  description: A string
+        required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinwonType2'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+          description: Changed MinwonType2
+      operationId: Post MinwonType2
+      summary: Post MinwonType2
+  '/minwonType2s/{id}':
+    summary: Specific operation on minwonType2s
+    get:
+      parameters:
+        - examples:
+            A string:
+              value: A string
+          name: id
+          description: MinwonType2 name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinwonType2'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+          description: minwonType2s with specified id
+      operationId: GetMinwonType2ById
+      summary: Get MinwonType2 by id
+      description: Get MinwonType2 by id
+    patch:
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MinwonType2'
+            examples:
+              '1':
+                value:
+                  name: A string
+                  description: A string
+        required: true
+      parameters:
+        - examples:
+            '1':
+              value: 1
+          name: name
+          description: MinwonType2 name
+          schema:
+            type: string
+          in: path
+          required: true
+      responses:
+        '200':
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MinwonType2'
+              examples:
+                '1':
+                  value:
+                    name: A string
+                    description: A string
+          description: Changed MinwonType2
+      operationId: PatchMinwonType2
+      summary: Patch existing MinwonType2
+    parameters:
+      - name: id
+        description: MinwonType2 id
+        schema:
+          type: string
+        in: path
+        required: true
+openapi: 3.0.2
+info:
+  title: MinwonType2
+  version: 0.0.1
+  description: API definition of minwonType2
+  contact:
+    name: creator's name
+    url: 'http://creator.homepage.address'
+    email: creator@creator.com
+  license:
+    name: MIT License
+    url: 'https://opensource.org/licenses/MIT'
+components:
+  schemas:
+    MinwonType2:
+      title: Root Type for MinwonType2
+      description: The root of the MinwonType2 type's schema.
+      type: object
+      properties:
+        name:
+          description: name of this MinwonType2
+          type: string
+        description:
+          description: description of this MinwonType2
+          type: string
+tags:
+  - name: MinwonType2
+    description: MinwonType2 resource
